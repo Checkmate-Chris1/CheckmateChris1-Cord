@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>checkmatechris1-cord</title>
+  <audio id="ding" src="{{ url_for('static', filename='ping.mp3') }}"></audio>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='logo.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='site.css') }}">
+  <!-- Socket.IO client -->
+  <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+  <script src="{{ url_for('static', filename='site.js') }}" defer></script>
+</head>
+<body>
+  <h1>
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+    checkmatechris1-cord
+  </h1>
+  <!-- console + image gallery side‑by‑side -->
+  <div class="main-row">
+    <div id="channels">
+    <div class="channel active">general</div>
+    <div class="channel">random</div>
+    <div class="channel">dev</div>
+</div>
+    <div id="console"></div>
+    <div id="gallery"></div>
+  </div>
+
+  <!-- Text‑input / upload bar -->
+  <div class="input-row">
+    <button id="uploadBtn" title="Upload image">+</button>
+    <input id="fileInput" type="file" accept="image/*" hidden>
+
+    <input id="nicknameInput" type="text" placeholder="Anon" value="Anon">
+    <input id="messageInput" type="text" placeholder="Type and press enter">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+  <div class="buttons">
+    <button style='background-color:#700000' onclick="goAFK()">AFK</button>
+    <button style='background-color:#047000' onclick="comeBack()">BACK</button>
+  </div>
+</body>
+</html>
